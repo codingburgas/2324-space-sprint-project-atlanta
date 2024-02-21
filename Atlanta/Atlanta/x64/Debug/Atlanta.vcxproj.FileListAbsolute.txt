@@ -1,1 +1,2 @@
 C:\Users\zvlad\source\repos\Atlanta\Atlanta\Atlanta\x64\Debug\Atlanta.vcxproj.CopyComplete
+C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\x64\Debug\Atlanta.vcxproj.CopyComplete
