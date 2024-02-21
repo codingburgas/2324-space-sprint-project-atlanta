@@ -18,21 +18,40 @@ int main()
 
     Font arial;
     arial.loadFromFile("arial.ttf");
-    
-    startButton btn1("Start", { 200, 50 }, 20, Color::Green, Color::Black);
-    btn1.setPosition({ 350, 300 });
-    btn1.setFont(arial);
 
+    Button start("Start", { 200, 50 }, 20, Color::Green, Color::Black);
+    start.setPosition({ 350, 300 });
+    start.setFont(arial);
+
+    Button rules("Rules", { 200, 50 }, 20, Color::Green, Color::Black);
+    rules.setPosition({ 350, 400 });
+    rules.setFont(arial);
+
+    Text rulesText;
+    rulesText.setString("These are the game rules:\n1. Rule 1\n2. Rule 2\n3. Rule 3");
+    rulesText.setCharacterSize(20);
+    rulesText.setPosition(200.f, 250.f);
+    rulesText.setFont(arial);
+
+    Text warningText;
+    warningText.setString("Please, read the rules first!");
+    warningText.setCharacterSize(20);
+    warningText.setPosition({350, 450});
+    warningText.setFont(arial);
+
+    Button back("Back", { 200, 50 }, 20, Color::Green, Color::Black);
+    back.setPosition({ 350, 800 });
+    back.setFont(arial);
+
+    bool showRules = false;
+    bool rulesRead = false;
 
     while (window.isOpen())
     {
         Event event;
-        if (Keyboard::isKeyPressed(Keyboard::Return)) {
-            
-        }
-        else if (Keyboard::isKeyPressed(Keyboard::Escape))
+        if (Keyboard::isKeyPressed(Keyboard::Escape))
         {
-
+            window.close();
         }
 
         while (window.pollEvent(event))
@@ -42,24 +61,61 @@ int main()
             case Event::Closed:
                 window.close();
             case Event::MouseMoved:
-                if (btn1.isMouseOver(window)) {
-                    btn1.setBackColor(Color::White);
+                if (start.isMouseOver(window)) {
+                    start.setBackColor(Color::White);
                 }
                 else {
-                    btn1.setBackColor(Color::Green);
+                    start.setBackColor(Color::Green);
+                }
+                if (rules.isMouseOver(window)) {
+                    rules.setBackColor(Color::White);
+                }
+                else {
+                    rules.setBackColor(Color::Green);
+                }
+                if (back.isMouseOver(window)) {
+                    back.setBackColor(Color::White);
+                }
+                else {
+                    back.setBackColor(Color::Green);
                 }
                 break;
             case Event::MouseButtonPressed:
-                if (btn1.isMouseOver(window)) {
-                    cout << "Test";
+                if (start.isMouseOver(window)) {
+                    if (rulesRead) {
+                        cout << "Start";
+                    }
+                }
+                else if (rules.isMouseOver(window))
+                {
+                    showRules = !showRules;
+               
+                }
+                else if (back.isMouseOver(window))
+                {
+                    rulesRead = true;
+                    showRules = !showRules;
+
                 }
 
             }
         }
 
         window.clear();
-        btn1.drawTo(window);
+
+        if (showRules) {
+            window.draw(rulesText);
+            back.drawTo(window);
+        }
+        else if(!rulesRead){
+            start.drawTo(window);
+            rules.drawTo(window);
+            window.draw(warningText);
+        }
+        else {
+            start.drawTo(window);
+            rules.drawTo(window);
+        }
         window.display();
     }
-
 }

@@ -6,14 +6,14 @@
 using namespace sf;
 using namespace std;
 
-class startButton
+class Button
 {
 public:
-	startButton()
+	Button()
 	{
 
 	}
-	startButton(string t, Vector2f size, int charSize, Color bgColor, Color textColor)
+	Button(string t, Vector2f size, int charSize, Color bgColor, Color textColor)
 	{
 		text.setString(t);
 		text.setFillColor(textColor);
