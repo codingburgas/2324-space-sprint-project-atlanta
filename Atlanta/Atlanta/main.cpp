@@ -27,6 +27,10 @@ int main()
     rules.setPosition({ 350, 400 });
     rules.setFont(arial);
 
+    Button exit("Exit", { 200, 50 }, 20, Color::Green, Color::Black);
+    exit.setPosition({ 350, 500 });
+    exit.setFont(arial);
+
     Text rulesText;
     rulesText.setString("These are the game rules:\n1. Rule 1\n2. Rule 2\n3. Rule 3");
     rulesText.setCharacterSize(20);
@@ -36,7 +40,7 @@ int main()
     Text warningText;
     warningText.setString("Please, read the rules first!");
     warningText.setCharacterSize(20);
-    warningText.setPosition({350, 450});
+    warningText.setPosition({350, 550});
     warningText.setFont(arial);
 
     Button back("Back", { 200, 50 }, 20, Color::Green, Color::Black);
@@ -79,6 +83,14 @@ int main()
                 else {
                     back.setBackColor(Color::Green);
                 }
+
+                if (exit.isMouseOver(window)) {
+                    exit.setBackColor(Color::White);
+                }
+                else {
+                    exit.setBackColor(Color::Green);
+                }
+
                 break;
             case Event::MouseButtonPressed:
                 if (start.isMouseOver(window)) {
@@ -97,6 +109,10 @@ int main()
                     showRules = !showRules;
 
                 }
+                else if (exit.isMouseOver(window))
+                {
+                    window.close();
+                }
 
             }
         }
@@ -110,11 +126,13 @@ int main()
         else if(!rulesRead){
             start.drawTo(window);
             rules.drawTo(window);
+            exit.drawTo(window);
             window.draw(warningText);
         }
         else {
             start.drawTo(window);
             rules.drawTo(window);
+            exit.drawTo(window);
         }
         window.display();
     }
