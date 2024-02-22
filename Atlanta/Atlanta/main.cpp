@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "startMenu.h"
+#include "game.h"
 using namespace sf;
 using namespace std;
     
@@ -96,6 +97,8 @@ int main()
                 if (start.isMouseOver(window)) {
                     if (rulesRead) {
                         cout << "Start";
+                        window.close();
+                        gameScreen();
                     }
                 }
                 else if (rules.isMouseOver(window))
