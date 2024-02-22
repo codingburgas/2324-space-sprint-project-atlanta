@@ -1,7 +1,10 @@
-#include <iostream>
+#include <iostream> 
+#include <stdio.h> 
+
 #include <SFML/Graphics.hpp>
 
 #include "startMenu.h"
+#include "game.h"
 using namespace sf;
 using namespace std;
     
@@ -19,15 +22,15 @@ int main()
     Font arial;
     arial.loadFromFile("arial.ttf");
 
-    Button start("Start", { 200, 50 }, 20, Color::Green, Color::Black);
+    Button start("Start", { 200, 50 }, 20, Color::Magenta, Color::White);
     start.setPosition({ 350, 300 });
     start.setFont(arial);
 
-    Button rules("Rules", { 200, 50 }, 20, Color::Green, Color::Black);
+    Button rules("Rules", { 200, 50 }, 20, Color::Magenta, Color::White);
     rules.setPosition({ 350, 400 });
     rules.setFont(arial);
 
-    Button exit("Exit", { 200, 50 }, 20, Color::Green, Color::Black);
+    Button exit("Exit", { 200, 50 }, 20, Color::Magenta, Color::White);
     exit.setPosition({ 350, 500 });
     exit.setFont(arial);
 
@@ -38,12 +41,14 @@ int main()
     rulesText.setFont(arial);
 
     Text warningText;
-    warningText.setString("Please, read the rules first!");
-    warningText.setCharacterSize(20);
-    warningText.setPosition({350, 550});
+    warningText.setString ("Please, read the rules first!");
+    warningText.setCharacterSize(40);
+    warningText.setPosition({200, 550});
     warningText.setFont(arial);
+ 
 
-    Button back("Back", { 200, 50 }, 20, Color::Green, Color::Black);
+
+    Button back("Back", { 200, 50 }, 20, Color::Magenta, Color::White);
     back.setPosition({ 350, 800 });
     back.setFont(arial);
 
@@ -66,29 +71,29 @@ int main()
                 window.close();
             case Event::MouseMoved:
                 if (start.isMouseOver(window)) {
-                    start.setBackColor(Color::White);
+                    start.setBackColor(Color::Transparent);
                 }
                 else {
-                    start.setBackColor(Color::Green);
+                    start.setBackColor(Color::Magenta);
                 }
                 if (rules.isMouseOver(window)) {
-                    rules.setBackColor(Color::White);
+                    rules.setBackColor(Color::Transparent);
                 }
                 else {
-                    rules.setBackColor(Color::Green);
+                    rules.setBackColor(Color::Magenta);
                 }
                 if (back.isMouseOver(window)) {
-                    back.setBackColor(Color::White);
+                    back.setBackColor(Color::Transparent);
                 }
                 else {
-                    back.setBackColor(Color::Green);
+                    back.setBackColor(Color::Magenta);
                 }
 
                 if (exit.isMouseOver(window)) {
-                    exit.setBackColor(Color::White);
+                    exit.setBackColor(Color::Transparent);
                 }
                 else {
-                    exit.setBackColor(Color::Green);
+                    exit.setBackColor(Color::Magenta);
                 }
 
                 break;
@@ -96,6 +101,8 @@ int main()
                 if (start.isMouseOver(window)) {
                     if (rulesRead) {
                         cout << "Start";
+                        window.close();
+                        gameScreen();
                     }
                 }
                 else if (rules.isMouseOver(window))
