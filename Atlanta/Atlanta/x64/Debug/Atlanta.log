@@ -1,15 +1,28 @@
 ﻿  game.cpp
-C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\startMenu.h(45,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\startMenu.h(58,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\startMenu.h(47,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\startMenu.h(60,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\startMenu.h(59,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\startMenu.h(61,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
+  main.cpp
+C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\startMenu.h(47,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\startMenu.h(60,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\startMenu.h(61,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Generating Code...
   Atlanta.vcxproj -> C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\x64\Debug\Atlanta.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

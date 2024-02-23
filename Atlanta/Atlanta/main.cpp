@@ -71,29 +71,29 @@ int main()
                 window.close();
             case Event::MouseMoved:
                 if (start.isMouseOver(window)) {
-                    start.setBackColor(Color::Transparent);
+                    start.setBackColor(Color::Transparent, Color::White);
                 }
                 else {
-                    start.setBackColor(Color::Magenta);
+                    start.setBackColor(Color::Magenta, Color::White);
                 }
                 if (rules.isMouseOver(window)) {
-                    rules.setBackColor(Color::Transparent);
+                    rules.setBackColor(Color::Transparent, Color::White);
                 }
                 else {
-                    rules.setBackColor(Color::Magenta);
+                    rules.setBackColor(Color::Magenta, Color::White);
                 }
                 if (back.isMouseOver(window)) {
-                    back.setBackColor(Color::Transparent);
+                    back.setBackColor(Color::Transparent, Color::White);
                 }
                 else {
-                    back.setBackColor(Color::Magenta);
+                    back.setBackColor(Color::Magenta, Color::White);
                 }
 
                 if (exit.isMouseOver(window)) {
-                    exit.setBackColor(Color::Transparent);
+                    exit.setBackColor(Color::Transparent, Color::White);
                 }
                 else {
-                    exit.setBackColor(Color::Magenta);
+                    exit.setBackColor(Color::Magenta, Color::White);
                 }
 
                 break;

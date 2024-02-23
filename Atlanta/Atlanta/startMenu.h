@@ -29,9 +29,11 @@ public:
 		text.setFont(font);
 	}
 
-	void setBackColor(Color color)
+	void setBackColor(Color color, Color outline)
 	{
 		button.setFillColor(color);
+		button.setOutlineColor(outline);
+		button.setOutlineThickness(2);
 	}
 
 	void setTextColor(Color color)
