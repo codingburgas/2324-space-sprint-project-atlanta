@@ -46,7 +46,11 @@ int main()
     warningText.setPosition({200, 550});
     warningText.setFont(arial);
  
-
+    Text title;
+    title.setString("Atlanta");
+    title.setCharacterSize(80);
+    title.setPosition({ 325, 200 });
+    title.setFont(arial);
 
     Button back("Back", { 200, 50 }, 20, Color::Magenta, Color::White);
     back.setPosition({ 350, 800 });
@@ -135,12 +139,14 @@ int main()
             back.drawTo(window);
         }
         else if(!rulesRead){
+            window.draw(title);
             start.drawTo(window);
             rules.drawTo(window);
             exit.drawTo(window);
             window.draw(warningText);
         }
         else {
+            window.draw(title);
             start.drawTo(window);
             rules.drawTo(window);
             exit.drawTo(window);
