@@ -10,6 +10,9 @@ RenderWindow window;
 
 Vector2i centerWindow((VideoMode::getDesktopMode().width / 2) - 640, (VideoMode::getDesktopMode().height / 2) - 480);
 
+Font font;
+
+
 void drawStars(VertexArray& stars, int numStars, Vector2u windowSize) {
     srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -45,6 +48,18 @@ void gameScreen() {
 
     drawStars(stars, 200, window.getSize());
 
+    font.loadFromFile("font.ttf");
+
+    Text ready;
+    ready.setString("     Are you ready \n\nfor your space tour");
+    ready.setCharacterSize(70);
+    ready.setPosition({ 470, 150 });
+    ready.setFont(font);
+
+    Button go("GO", { 250, 80 }, 80, Color::Magenta, Color::White);
+    go.setPosition({ 710, 400 }, 75, 15);
+    go.setFont(font);
+
     while (window.isOpen())
     {
         Event event;
@@ -60,14 +75,26 @@ void gameScreen() {
             case Event::Closed:
                 window.close();
             case Event::MouseMoved:
+                if (go.isMouseOver(window)) {
+                    go.setBackColor(Color::Transparent, Color::White);
+                }
+                else {
+                    go.setBackColor(Color::Magenta, Color::White);
+                }
                 break;
             case Event::MouseButtonPressed:
-                break;
+                if (go.isMouseOver(window))
+                {
+                    cout << "GO!";
+
+                }
             }
         }
 
         window.clear();
         window.draw(stars);
+        window.draw(ready);
+        go.drawTo(window);
         spaceShip(15, 500, 0.3, 0.3);
         window.display();
     }
