@@ -19,42 +19,42 @@ int main()
 
     window.setKeyRepeatEnabled(true);
 
-    Font arial;
-    arial.loadFromFile("arial.ttf");
+    Font font;
+    font.loadFromFile("font.ttf");
 
-    Button start("Start", { 200, 50 }, 20, Color::Magenta, Color::White);
-    start.setPosition({ 350, 300 });
-    start.setFont(arial);
+    Button start("Start", { 200, 50 }, 40, Color::Magenta, Color::White);
+    start.setPosition({ 350, 300 }, 43.6,1 );
+    start.setFont(font);
 
-    Button rules("Rules", { 200, 50 }, 20, Color::Magenta, Color::White);
-    rules.setPosition({ 350, 400 });
-    rules.setFont(arial);
+    Button rules("Rules", { 200, 50 }, 40, Color::Magenta, Color::White);
+    rules.setPosition({ 350, 400 }, 40.5, 1);
+    rules.setFont(font);
 
-    Button exit("Exit", { 200, 50 }, 20, Color::Magenta, Color::White);
-    exit.setPosition({ 350, 500 });
-    exit.setFont(arial);
+    Button exit("Exit", { 200, 50 }, 40, Color::Magenta, Color::White);
+    exit.setPosition({ 350, 500 }, 62, 1);
+    exit.setFont(font);
 
     Text rulesText;
     rulesText.setString("These are the game rules:\n1. Rule 1\n2. Rule 2\n3. Rule 3");
     rulesText.setCharacterSize(20);
     rulesText.setPosition(200.f, 250.f);
-    rulesText.setFont(arial);
+    rulesText.setFont(font);
 
     Text warningText;
-    warningText.setString ("Please, read the rules first!");
+    warningText.setString ("Please read the rules first");
     warningText.setCharacterSize(40);
-    warningText.setPosition({200, 550});
-    warningText.setFont(arial);
+    warningText.setPosition({160, 650});
+    warningText.setFont(font);
  
     Text title;
     title.setString("Atlanta");
-    title.setCharacterSize(80);
-    title.setPosition({ 325, 200 });
-    title.setFont(arial);
+    title.setCharacterSize(100);
+    title.setPosition({ 240, 100 });
+    title.setFont(font);
 
-    Button back("Back", { 200, 50 }, 20, Color::Magenta, Color::White);
-    back.setPosition({ 350, 800 });
-    back.setFont(arial);
+    Button back("Back", { 200, 50 }, 40, Color::Magenta, Color::White);
+    back.setPosition({ 350, 800 }, 50, 2);
+    back.setFont(font);
 
     bool showRules = false;
     bool rulesRead = false;

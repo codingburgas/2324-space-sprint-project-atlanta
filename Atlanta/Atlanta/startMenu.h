@@ -41,11 +41,11 @@ public:
 		text.setFillColor(color);
 	}
 
-	void setPosition(Vector2f pos)
+	void setPosition(Vector2f pos, float X, float Y)
 	{
 		button.setPosition(pos);
-		float xPos = ((pos.x + button.getLocalBounds().width / 2.5) - (text.getLocalBounds().width / 2));
-		float yPos = ((pos.y + button.getLocalBounds().height / 4) - (text.getLocalBounds().height / 2));
+		float xPos = (pos.x + X);
+		float yPos = (pos.y - Y);
 		text.setPosition({ xPos, yPos });
 	}
 
