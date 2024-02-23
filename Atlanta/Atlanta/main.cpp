@@ -55,6 +55,10 @@ int main()
     bool showRules = false;
     bool rulesRead = false;
 
+    VertexArray stars(sf::Points);
+
+    drawStars(stars, 200, window.getSize());
+
     while (window.isOpen())
     {
         Event event;
@@ -125,7 +129,7 @@ int main()
         }
 
         window.clear();
-
+        window.draw(stars);
         if (showRules) {
             window.draw(rulesText);
             back.drawTo(window);
