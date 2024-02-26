@@ -12,7 +12,6 @@ Vector2i centerWindow((VideoMode::getDesktopMode().width / 2) - 640, (VideoMode:
 
 Font font;
 
-
 void drawStars(VertexArray& stars, int numStars, Vector2u windowSize) {
     srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -37,6 +36,23 @@ void spaceShip(int posX, int posY, float scale1, float scale2)
     window.draw(image);
 }
 
+void planetTravel(int reps)
+{
+    spaceShip(200, 500, 0.3, 0.3);
+    if (reps == 1)
+    {
+        Texture source;
+        if (!source.loadFromFile("neptun.png"))
+        {
+                cout << "Image not working";
+        }
+        Sprite image;
+        image.setTexture(source);
+        image.setPosition(650, 250);
+        image.setScale(1, 1);
+        window.draw(image);
+    }
+}
 
 void gameScreen() {
     window.create(VideoMode(1280, 900), "Atlanta", Style::Titlebar | Style::Close);
@@ -59,6 +75,9 @@ void gameScreen() {
     Button go("GO", { 250, 80 }, 80, Color::Magenta, Color::White);
     go.setPosition({ 710, 400 }, 75, 15);
     go.setFont(font);
+
+
+    bool start = false;
 
     while (window.isOpen())
     {
@@ -86,6 +105,7 @@ void gameScreen() {
                 if (go.isMouseOver(window))
                 {
                     cout << "GO!";
+                    start = true;
 
                 }
             }
@@ -93,9 +113,15 @@ void gameScreen() {
 
         window.clear();
         window.draw(stars);
-        window.draw(ready);
-        go.drawTo(window);
-        spaceShip(15, 500, 0.3, 0.3);
+        if (start) {
+            planetTravel(1);
+        }
+        else {
+            window.draw(stars);
+            window.draw(ready);
+            go.drawTo(window);
+            spaceShip(15, 500, 0.3, 0.3);
+        }
         window.display();
     }
 }		
