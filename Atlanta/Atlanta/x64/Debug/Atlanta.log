@@ -12,7 +12,7 @@ C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\st
 C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\game.cpp(36,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\game.cpp(36,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\game.cpp(43,33): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\game.cpp(176,40): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\Atlanta\game.cpp(250,40): warning C4305: 'argument': truncation from 'double' to 'float'
   Atlanta.vcxproj -> C:\Users\zvlad\source\repos\2324-space-sprint-project-atlanta\Atlanta\x64\Debug\Atlanta.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

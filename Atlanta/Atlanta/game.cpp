@@ -73,7 +73,57 @@ void planetTravel(int reps)
         {
             cout << "Image not working";
         }
-        info.setString("Saturn is famous \nfor its rings and has a \nhydrogenhelium atmosphere and \neightytwo moons.");
+        info.setString("Saturn is famous \nfor its rings and has a \nhydrogenhelium atmosphere and \neightytwo moons");
+        image.setPosition(650, 280);
+        image.setScale(1, 1);
+    }
+    if (reps == 4)
+    {
+        if (!source.loadFromFile("img/jupiter.png"))
+        {
+            cout << "Image not working";
+        }
+        info.setString("Jupiter is the \nlargest planet and it has \ncolorful clouds and the \nGreat Red Spot and over \nseventynine moons");
+        image.setPosition(650, 280);
+        image.setScale(1, 1);
+    }
+    if (reps == 5)
+    {
+        if (!source.loadFromFile("img/mars.png"))
+        {
+            cout << "Image not working";
+        }
+        info.setString("Mars the Red Planet \nhas polar ice caps and volcanoes \nand two moons Phobos \nand Deimos");
+        image.setPosition(650, 280);
+        image.setScale(1, 1);
+    }
+    if (reps == 5)
+    {
+        if (!source.loadFromFile("img/mars.png"))
+        {
+            cout << "Image not working";
+        }
+        info.setString("Mars the Red Planet \nhas polar ice caps and volcanoes \nand two moons Phobos \nand Deimos");
+        image.setPosition(650, 280);
+        image.setScale(1, 1);
+    }
+    if (reps == 6)
+    {
+        if (!source.loadFromFile("img/earth.png"))
+        {
+            cout << "Image not working";
+        }
+        info.setString("Earth is our home \nand it supports life with water \nand land and has one moon.");
+        image.setPosition(650, 280);
+        image.setScale(1, 1);
+    }
+    if (reps == 5)
+    {
+        if (!source.loadFromFile("img/mars.png"))
+        {
+            cout << "Image not working";
+        }
+        info.setString("Mars the Red Planet \nhas polar ice caps and volcanoes \nand two moons Phobos \nand Deimos");
         image.setPosition(650, 280);
         image.setScale(1, 1);
     }
@@ -166,6 +216,30 @@ void gameScreen() {
             else if (i == 3)
             {
                 planetTravel(3);
+            }
+            else if (i == 4)
+            {
+                planetTravel(4);
+            }
+            else if (i == 5)
+            {
+                planetTravel(5);
+            }
+            else if (i == 6)
+            {
+                planetTravel(6);
+            }
+            else if (i == 7)
+            {
+                planetTravel(7);
+            }
+            else if (i == 8)
+            {
+                planetTravel(8);
+            }
+            else if (i == 9)
+            {
+                planetTravel(9);
             }
             
         }
