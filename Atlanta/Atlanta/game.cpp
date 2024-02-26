@@ -105,7 +105,7 @@ void planetTravel(int reps)
         {
             cout << "Image not working";
         }
-        info.setString("Earth is our home \nand it supports life with water \nand land and has one moon");
+        info.setString("The Earth is our home \nand it supports life with water \nand land and has one moon");
         image.setPosition(650, 280);
         image.setScale(1, 1);
     }
