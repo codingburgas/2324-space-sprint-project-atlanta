@@ -172,7 +172,7 @@ void gameScreen() {
     next.setPosition({ 1050, 800 }, 50, 1);
     next.setFont(font);
     Button finish("FINISH", { 200, 50 }, 40, Color::Magenta, Color::White);
-    finish.setPosition({ 550, 800 }, 40, 1);
+    finish.setPosition({ 550, 800 }, 45, 1);
     finish.setFont(font);
 
     bool start = false;

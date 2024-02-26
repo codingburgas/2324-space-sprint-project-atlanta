@@ -35,9 +35,9 @@ int main()
     exit.setFont(font);
 
     Text rulesText;
-    rulesText.setString("These are the game rules:\n1. Rule 1\n2. Rule 2\n3. Rule 3");
-    rulesText.setCharacterSize(20);
-    rulesText.setPosition(200.f, 250.f);
+    rulesText.setString("You have to go through all the \n\nplanets and read short descriptions \n\nfor each one of them \n\nThis information will \n\ngive you basic knowledge \n\nabout the solar system");
+    rulesText.setCharacterSize(40);
+    rulesText.setPosition(50.f, 250.f);
     rulesText.setFont(font);
 
     Text warningText;
