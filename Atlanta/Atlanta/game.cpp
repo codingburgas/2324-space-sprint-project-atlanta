@@ -39,19 +39,25 @@ void spaceShip(int posX, int posY, float scale1, float scale2)
 void planetTravel(int reps)
 {
     spaceShip(200, 500, 0.3, 0.3);
+    Texture source;
+    Sprite image;
+    Text info;
+    info.setCharacterSize(50);
+    info.setPosition({ 100, 150 });
+    info.setFont(font);
     if (reps == 1)
     {
-        Texture source;
         if (!source.loadFromFile("neptun.png"))
         {
                 cout << "Image not working";
         }
-        Sprite image;
-        image.setTexture(source);
+        info.setString(" Neptune is blue and stormy \n and it has fourteen moons \n including Triton with \n retrograde orbit");
         image.setPosition(650, 250);
         image.setScale(1, 1);
-        window.draw(image);
     }
+    image.setTexture(source);
+    window.draw(image);
+    window.draw(info);
 }
 
 void gameScreen() {
