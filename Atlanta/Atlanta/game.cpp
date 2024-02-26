@@ -40,7 +40,9 @@ void spaceShip(int posX, int posY, float scale1, float scale2)
 
 void planetTravel(int reps)
 {
-    spaceShip(200, 500, 0.3, 0.3);
+    if (reps != 9) {
+        spaceShip(200, 500, 0.3, 0.3);
+    }
     Texture source;
     Sprite image;
     Text info;
@@ -103,7 +105,7 @@ void planetTravel(int reps)
         {
             cout << "Image not working";
         }
-        info.setString("Earth is our home \nand it supports life with water \nand land and has one moon.");
+        info.setString("Earth is our home \nand it supports life with water \nand land and has one moon");
         image.setPosition(650, 280);
         image.setScale(1, 1);
     }
@@ -119,13 +121,25 @@ void planetTravel(int reps)
     }
     if (reps == 8)
     {
-        if (!source.loadFromFile("img/mars.png"))
+        if (!source.loadFromFile("img/mercury.png"))
         {
             cout << "Image not working";
         }
-        info.setString("Mars the Red Planet \nhas polar ice caps and volcanoes \nand two moons Phobos \nand Deimos");
+        info.setString("Mercury is closest \nto the Sun and has a rocky \nsurface and extreme temperatures \nand no moons");
         image.setPosition(650, 280);
         image.setScale(1, 1);
+    }
+    if (reps == 9)
+    {
+        if (!source.loadFromFile("img/sun.png"))
+        {
+            cout << "Image not working";
+        }
+        info.setCharacterSize(50);
+        info.setPosition({ 250, 50 });
+        info.setString("         Congratulations \n     you finished our little \n     informative space tour\nnow you have basic knowledge \n      about the solar system\n  thank you for participating");
+        image.setPosition(370, 280);
+        image.setScale(1.1, 1.1);
     }
     image.setTexture(source);
     window.draw(image);
@@ -157,6 +171,9 @@ void gameScreen() {
     Button next("NEXT", { 200, 50 }, 40, Color::Magenta, Color::White);
     next.setPosition({ 1050, 800 }, 50, 1);
     next.setFont(font);
+    Button finish("FINISH", { 200, 50 }, 40, Color::Magenta, Color::White);
+    finish.setPosition({ 550, 800 }, 40, 1);
+    finish.setFont(font);
 
     bool start = false;
 
@@ -187,7 +204,12 @@ void gameScreen() {
                 else {
                     next.setBackColor(Color::Magenta, Color::White);
                 }
-             
+                if (finish.isMouseOver(window)) {
+                    finish.setBackColor(Color::Transparent, Color::White);
+                }
+                else {
+                    finish.setBackColor(Color::Magenta, Color::White);
+                }
                 break;
             case Event::MouseButtonPressed:
                 if (go.isMouseOver(window))
@@ -199,13 +221,20 @@ void gameScreen() {
                     i += 1;
                     cout << i;
                 }
+                else if (finish.isMouseOver(window))
+                {
+                    window.close();
+                }
             }
         }
 
         window.clear();
         window.draw(stars);
         if (start) {
-            next.drawTo(window);
+            if (i != 9)
+            {
+                next.drawTo(window);
+            }
             if (i == 1) {
                 planetTravel(1);
             }
@@ -240,6 +269,7 @@ void gameScreen() {
             else if (i == 9)
             {
                 planetTravel(9);
+                finish.drawTo(window);
             }
             
         }
