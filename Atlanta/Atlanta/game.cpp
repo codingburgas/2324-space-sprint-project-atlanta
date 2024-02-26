@@ -12,6 +12,10 @@ Vector2i centerWindow((VideoMode::getDesktopMode().width / 2) - 640, (VideoMode:
 
 Font font;
 
+int i = 1;
+
+bool question = false;
+
 void drawStars(VertexArray& stars, int numStars, Vector2u windowSize) {
     srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -60,6 +64,21 @@ void planetTravel(int reps)
     window.draw(info);
 }
 
+void questionBank(int reps)
+{
+    Text quest;
+    quest.setCharacterSize(50);
+    quest.setPosition({ 100, 150 });
+    quest.setFont(font);
+
+    if (reps == 1)
+    {
+        quest.setString("What weather is typical for Neptune");
+    }
+    
+    window.draw(quest);
+}
+
 void gameScreen() {
     window.create(VideoMode(1280, 900), "Atlanta", Style::Titlebar | Style::Close);
     window.setPosition(centerWindow);
@@ -86,10 +105,14 @@ void gameScreen() {
     next.setPosition({ 1050, 800 }, 50, 1);
     next.setFont(font);
 
+    Button tr("Yes", { 200, 50 }, 40, Color::Magenta, Color::White);
+    Button fal("No", { 200, 50 }, 40, Color::Magenta, Color::White);
+    tr.setPosition({ 700, 400 }, 50, 1);
+    tr.setFont(font);
+    fal.setPosition({ 400, 400 }, 50, 1);
+    fal.setFont(font);
 
     bool start = false;
-
-    int i = 1;
 
     while (window.isOpen())
     {
@@ -118,6 +141,18 @@ void gameScreen() {
                 else {
                     next.setBackColor(Color::Magenta, Color::White);
                 }
+                if (tr.isMouseOver(window)) {
+                    tr.setBackColor(Color::Transparent, Color::White);
+                }
+                else {
+                    tr.setBackColor(Color::Magenta, Color::White);
+                }
+                if (fal.isMouseOver(window)) {
+                    fal.setBackColor(Color::Transparent, Color::White);
+                }
+                else {
+                    fal.setBackColor(Color::Magenta, Color::White);
+                }
                 break;
             case Event::MouseButtonPressed:
                 if (go.isMouseOver(window))
@@ -126,18 +161,39 @@ void gameScreen() {
                 }
                 else if (next.isMouseOver(window))
                 {
-                    i += 1;
-                    planetTravel(i);
+                    question = true;
+                    
                     cout << i;
+                }
+                else if (tr.isMouseOver(window))
+                {
+                    cout << "Yes";
+                }
+                else if (fal.isMouseOver(window))
+                {
+                    cout << "No";
                 }
             }
         }
 
         window.clear();
         window.draw(stars);
-        if (start) {
+        if (start && !question) {
             next.drawTo(window);
-            planetTravel(i);
+            if (i == 1) {
+                planetTravel(1);
+            }
+            else if (i == 2)
+            {
+                planetTravel(2);
+            }
+            
+        }
+        else if (question)
+        {
+            questionBank(i);
+            tr.drawTo(window);
+            fal.drawTo(window);
         }
         else {
             window.draw(stars);
