@@ -97,16 +97,6 @@ void planetTravel(int reps)
         image.setPosition(650, 280);
         image.setScale(1, 1);
     }
-    if (reps == 5)
-    {
-        if (!source.loadFromFile("img/mars.png"))
-        {
-            cout << "Image not working";
-        }
-        info.setString("Mars the Red Planet \nhas polar ice caps and volcanoes \nand two moons Phobos \nand Deimos");
-        image.setPosition(650, 280);
-        image.setScale(1, 1);
-    }
     if (reps == 6)
     {
         if (!source.loadFromFile("img/earth.png"))
@@ -117,7 +107,17 @@ void planetTravel(int reps)
         image.setPosition(650, 280);
         image.setScale(1, 1);
     }
-    if (reps == 5)
+    if (reps == 7)
+    {
+        if (!source.loadFromFile("img/venus.png"))
+        {
+            cout << "Image not working";
+        }
+        info.setString("Venus is Earths sister \nplanet and it has a thick \ncarbon dioxide atmosphere \nand no moons");
+        image.setPosition(650, 280);
+        image.setScale(1, 1);
+    }
+    if (reps == 8)
     {
         if (!source.loadFromFile("img/mars.png"))
         {
