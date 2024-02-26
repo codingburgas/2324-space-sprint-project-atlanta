@@ -14,7 +14,7 @@ Font font;
 
 int i = 1;
 
-void drawStars(VertexArray& stars, int numStars, Vector2u windowSize) {
+void drawStars(VertexArray& stars, int numStars, Vector2u windowSize) { // function to draw stars for background
     srand(static_cast<unsigned int>(time(nullptr)));
 
     for (int i = 0; i < numStars; ++i) {
@@ -24,7 +24,7 @@ void drawStars(VertexArray& stars, int numStars, Vector2u windowSize) {
     }
 }
 
-void spaceShip(int posX, int posY, float scale1, float scale2)
+void spaceShip(int posX, int posY, float scale1, float scale2) //function to draw the space ship where wanted to
 {
     Texture source;
     if (!source.loadFromFile("img/spaceship.jpg"))
@@ -38,7 +38,7 @@ void spaceShip(int posX, int posY, float scale1, float scale2)
     window.draw(image);
 }
 
-void planetTravel(int reps)
+void planetTravel(int reps) // function for positioning the planets
 {
     if (reps != 9) {
         spaceShip(200, 500, 0.3, 0.3);
@@ -146,7 +146,7 @@ void planetTravel(int reps)
     window.draw(info);
 }
 
-void gameScreen() {
+void gameScreen() { //main screen for all actions on the tour
     window.create(VideoMode(1280, 900), "Atlanta", Style::Titlebar | Style::Close);
     window.setPosition(centerWindow);
 
