@@ -63,8 +63,18 @@ void planetTravel(int reps)
         {
             cout << "Image not working";
         }
-        info.setString("Uranus is tilted \non its side and has a bluegreen \nhue and twentyseven moons \nand narrow rings.");
+        info.setString("Uranus is tilted \non its side and has a bluegreen \nhue and twentyseven moons \nand narrow rings");
         image.setPosition(650, 250);
+        image.setScale(1, 1);
+    }
+    if (reps == 3)
+    {
+        if (!source.loadFromFile("img/saturn.png"))
+        {
+            cout << "Image not working";
+        }
+        info.setString("Saturn is famous \nfor its rings and has a \nhydrogenhelium atmosphere and \neightytwo moons.");
+        image.setPosition(650, 280);
         image.setScale(1, 1);
     }
     image.setTexture(source);
@@ -152,6 +162,10 @@ void gameScreen() {
             else if (i == 2)
             {
                 planetTravel(2);
+            }
+            else if (i == 3)
+            {
+                planetTravel(3);
             }
             
         }
