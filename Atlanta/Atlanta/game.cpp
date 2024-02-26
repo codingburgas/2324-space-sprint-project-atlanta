@@ -82,8 +82,14 @@ void gameScreen() {
     go.setPosition({ 710, 400 }, 75, 15);
     go.setFont(font);
 
+    Button next("NEXT", { 200, 50 }, 40, Color::Magenta, Color::White);
+    next.setPosition({ 1050, 800 }, 50, 1);
+    next.setFont(font);
+
 
     bool start = false;
+
+    int i = 1;
 
     while (window.isOpen())
     {
@@ -106,13 +112,23 @@ void gameScreen() {
                 else {
                     go.setBackColor(Color::Magenta, Color::White);
                 }
+                if (next.isMouseOver(window)) {
+                    next.setBackColor(Color::Transparent, Color::White);
+                }
+                else {
+                    next.setBackColor(Color::Magenta, Color::White);
+                }
                 break;
             case Event::MouseButtonPressed:
                 if (go.isMouseOver(window))
                 {
-                    cout << "GO!";
                     start = true;
-
+                }
+                else if (next.isMouseOver(window))
+                {
+                    i += 1;
+                    planetTravel(i);
+                    cout << i;
                 }
             }
         }
@@ -120,7 +136,8 @@ void gameScreen() {
         window.clear();
         window.draw(stars);
         if (start) {
-            planetTravel(1);
+            next.drawTo(window);
+            planetTravel(i);
         }
         else {
             window.draw(stars);
