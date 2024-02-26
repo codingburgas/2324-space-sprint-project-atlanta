@@ -14,8 +14,6 @@ Font font;
 
 int i = 1;
 
-bool question = false;
-
 void drawStars(VertexArray& stars, int numStars, Vector2u windowSize) {
     srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -29,7 +27,7 @@ void drawStars(VertexArray& stars, int numStars, Vector2u windowSize) {
 void spaceShip(int posX, int posY, float scale1, float scale2)
 {
     Texture source;
-    if (!source.loadFromFile("spaceship.jpg"))
+    if (!source.loadFromFile("img/spaceship.jpg"))
     {
         cout << "Image not working";
     }
@@ -51,7 +49,7 @@ void planetTravel(int reps)
     info.setFont(font);
     if (reps == 1)
     {
-        if (!source.loadFromFile("neptun.png"))
+        if (!source.loadFromFile("img/neptun.png"))
         {
                 cout << "Image not working";
         }
@@ -59,24 +57,19 @@ void planetTravel(int reps)
         image.setPosition(650, 250);
         image.setScale(1, 1);
     }
+    if (reps == 2)
+    {
+        if (!source.loadFromFile("img/uranus.png"))
+        {
+            cout << "Image not working";
+        }
+        info.setString("Uranus is tilted \non its side and has a bluegreen \nhue and twentyseven moons \nand narrow rings.");
+        image.setPosition(650, 250);
+        image.setScale(1, 1);
+    }
     image.setTexture(source);
     window.draw(image);
     window.draw(info);
-}
-
-void questionBank(int reps)
-{
-    Text quest;
-    quest.setCharacterSize(50);
-    quest.setPosition({ 100, 150 });
-    quest.setFont(font);
-
-    if (reps == 1)
-    {
-        quest.setString("What weather is typical for Neptune");
-    }
-    
-    window.draw(quest);
 }
 
 void gameScreen() {
@@ -104,13 +97,6 @@ void gameScreen() {
     Button next("NEXT", { 200, 50 }, 40, Color::Magenta, Color::White);
     next.setPosition({ 1050, 800 }, 50, 1);
     next.setFont(font);
-
-    Button tr("Yes", { 200, 50 }, 40, Color::Magenta, Color::White);
-    Button fal("No", { 200, 50 }, 40, Color::Magenta, Color::White);
-    tr.setPosition({ 700, 400 }, 50, 1);
-    tr.setFont(font);
-    fal.setPosition({ 400, 400 }, 50, 1);
-    fal.setFont(font);
 
     bool start = false;
 
@@ -141,18 +127,7 @@ void gameScreen() {
                 else {
                     next.setBackColor(Color::Magenta, Color::White);
                 }
-                if (tr.isMouseOver(window)) {
-                    tr.setBackColor(Color::Transparent, Color::White);
-                }
-                else {
-                    tr.setBackColor(Color::Magenta, Color::White);
-                }
-                if (fal.isMouseOver(window)) {
-                    fal.setBackColor(Color::Transparent, Color::White);
-                }
-                else {
-                    fal.setBackColor(Color::Magenta, Color::White);
-                }
+             
                 break;
             case Event::MouseButtonPressed:
                 if (go.isMouseOver(window))
@@ -161,24 +136,15 @@ void gameScreen() {
                 }
                 else if (next.isMouseOver(window))
                 {
-                    question = true;
-                    
+                    i += 1;
                     cout << i;
-                }
-                else if (tr.isMouseOver(window))
-                {
-                    cout << "Yes";
-                }
-                else if (fal.isMouseOver(window))
-                {
-                    cout << "No";
                 }
             }
         }
 
         window.clear();
         window.draw(stars);
-        if (start && !question) {
+        if (start) {
             next.drawTo(window);
             if (i == 1) {
                 planetTravel(1);
@@ -188,12 +154,6 @@ void gameScreen() {
                 planetTravel(2);
             }
             
-        }
-        else if (question)
-        {
-            questionBank(i);
-            tr.drawTo(window);
-            fal.drawTo(window);
         }
         else {
             window.draw(stars);
